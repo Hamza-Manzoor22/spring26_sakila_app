@@ -7,7 +7,7 @@
 import os
 
 class Config:
-    """Configuration class for managing database and system settings."""
+    """Config class for managing db and sys settings."""
     MYSQL_HOST = os.environ.get('MYSQL_HOST', 'sakila-db-server')
     MYSQL_USER = os.environ.get('MYSQL_USER', 'root')
     MYSQL_PASSWORD = os.environ.get('MYSQL_PASSWORD', 'admin')
