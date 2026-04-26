@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: sakila-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: sakila
+    volumes:
+      - sakila-mysql-data:/var/lib/mysql
+    networks:
+      - sakila-net
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sakila-app
+    restart: always
+    environment:
+      MYSQL_HOST: db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+      MYSQL_DB: sakila
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    networks:
+      - sakila-net
+
+volumes:
+  sakila-mysql-data:
+
+networks:
+  sakila-net:
+    driver: bridge
