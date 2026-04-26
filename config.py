@@ -1,14 +1,13 @@
-# Name: Abdul Raffay Qasim
-# Name: Team Member
-# Date: 2026-04-23
+# Minor change for PR demonstration
+# Name: Hamza Manzoor
+# Name: Team Member Sam
+# Date: 2026-04-26
 # Minor improvement after PR review
 # Added after review feedback
 import os
 
 class Config:
-    """Base configuration class for the Sakila Flask application.
-    Handles database connection strings and system timeouts.
-    """
+    """Config class for managing db and sys settings."""
     MYSQL_HOST = os.environ.get('MYSQL_HOST', 'sakila-db-server')
     MYSQL_USER = os.environ.get('MYSQL_USER', 'root')
     MYSQL_PASSWORD = os.environ.get('MYSQL_PASSWORD', 'admin')
